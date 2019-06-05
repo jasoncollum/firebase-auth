@@ -4,6 +4,72 @@
       "email": "adam.e.sheaffer@gmail.com",
       "username": "Adam",
       "id": 1
+    },
+    {
+      "email": "newuser@internet.com",
+      "username": "NewUser",
+      "password": null,
+      "id": "qzHr6JY5u5OoJJKYqucQXWyKPny1"
+    },
+    {
+      "email": "sean@internet.com",
+      "username": "seann",
+      "password": null,
+      "id": "aqnrJZL27kfT7BWlcRZkl5HyQVo1"
+    },
+    {
+      "email": "tommy@email.com",
+      "username": "tommy",
+      "password": null,
+      "id": "YEt01ycyB8OgFexBvtBVp2n7w9v1"
+    },
+    {
+      "email": "davydave@email.com",
+      "username": "Davy",
+      "password": null,
+      "id": "ONdJvjE8wccsn4BAAO4mw550gWk2"
+    },
+    {
+      "email": "scooter@email.com",
+      "username": "Scooter",
+      "password": null,
+      "id": "F5SQMd4KhJNKUlDgIzEzfAvPPhp1"
+    },
+    {
+      "email": "clowney@clown.com",
+      "username": "Bozo",
+      "password": null,
+      "id": "gKFR9ZhZ56dIoN5zCbcyA6VricH3"
+    },
+    {
+      "email": "jumpman23@email.com",
+      "username": "Trampoline",
+      "password": null,
+      "id": "YfxPBrgMqgXazUtFEZSmZn0JHh42"
+    },
+    {
+      "email": "jason1234@email.com",
+      "username": "jason1234",
+      "password": null,
+      "id": "YwtC3nGdCrdJze5YO99WjJAXyUI3"
+    },
+    {
+      "email": "jason@jason.com",
+      "username": "jason",
+      "password": null,
+      "id": "IP2so2hUr8UllJRkQfOwqOkD0hO2"
+    },
+    {
+      "email": "jason@geemail.com",
+      "username": "jason",
+      "password": null,
+      "id": "AGVxdyDMvZXONPdbLRjw8a0qqX23"
+    },
+    {
+      "email": "todd@email.com",
+      "username": "todd",
+      "password": null,
+      "id": "g7Wk16TOtHT9jZe5gdCpz3I2ot53"
     }
   ]
 }

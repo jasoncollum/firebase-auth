@@ -56,10 +56,42 @@ to be the other user.
 
 */
 
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+
 const url = 'http://localhost:8088/users';
 
 const setUserInLocalStorage = (user) => {
   localStorage.setItem('user', JSON.stringify(user));
+}
+
+// user will have username, email and password
+export const register = (user) => {
+  return registerWithFirebase(user.email, user.password)
+    .then(firebaseId => {
+      user.password = null;
+      user.id = firebaseId;
+      return saveUserToJsonServer(user)
+    })
+    .then(newUserFromJsonServer => {
+      setUserInLocalStorage(newUserFromJsonServer)
+      return newUserFromJsonServer
+    })
+    .catch(function (error) {
+      alert('WTF')
+    });
+}
+
+export const login = (email, password) => {
+  return loginWithFirebase(email, password)
+    .then(firebaseId => getUser(firebaseId))
+    .then(userFromJsonServer => {
+      setUserInLocalStorage(userFromJsonServer);
+      return userFromJsonServer;
+    })
+    .catch(() => {
+      alert('Uh Oh - Worries logging in')
+    })
 }
 
 export const saveUserToJsonServer = (user) => {
@@ -77,25 +109,9 @@ export const saveUserToJsonServer = (user) => {
     });
 }
 
-
 export const getUser = (userId) => {
   return fetch(`${url}/${userId}`)
     .then(res => res.json());
-}
-
-export const login = (email) => {
-  // NOTE: json-server will return an array, but we only expect one or none users to come back
-  return fetch(`${url}?email=${email}`)
-    .then(res => res.json())
-    .then(matchingUsers => {
-      if (!matchingUsers.length) {
-        alert('No user exists with that email address');
-        return;
-      }
-      const user = matchingUsers[0];
-      setUserInLocalStorage(user);
-      return user;
-    });
 }
 
 export const getUserFromLocalStorage = () => {
@@ -108,4 +124,18 @@ export const getUserFromLocalStorage = () => {
 
 export const logout = () => {
   localStorage.removeItem('user');
+}
+
+export const registerWithFirebase = (email, password) => {
+  return firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(data => {
+      return data.user.uid
+    })
+}
+
+export const loginWithFirebase = (email, password) => {
+  return firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(data => {
+      return data.user.uid
+    })
 }
